@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+.jumbotron {
+  min-height: 100vh;
+}
+.hero_section {
+  margin-top: 5rem;
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .hero_section {
+    margin-top: 6rem;
+  }
+}
