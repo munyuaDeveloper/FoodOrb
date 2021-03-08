@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-md-6 offset-md-3 border bg-light">
         <h2 class="pt-1">Login</h2>
-        <form class="py-5">
+        <form [formGroup]="loginForm" class="py-5">
           <div class="form-group">
-            <input class="form-control" type="email" placeholder="Email" name="search">
+            <input class="form-control" formControlName="email" type="email" placeholder="Email" name="search">
           </div>
           <div class="form-group">
-            <input class="form-control" type="password" placeholder="Password" name="search">
+            <input class="form-control" formControlName="password" type="password" placeholder="Password" name="search">
           </div>
           <div class="container-fluid">
             <div class="row">
@@ -16,7 +16,7 @@
                 <p>Forgot password?<a  routerLink="/forgot-password" class="text-warning forgot_password">Reset</a></p>
               </div>
               <div class="col text-center">
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" (click)="loginUser()">Submit</button>
               </div>
             </div>
           </div>

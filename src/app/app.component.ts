@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OrderDetail} from './interfaces/interfaces';
+import {FoodOrbService} from './services-module/food-orb.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'FoodOrb';
+  loggedIn = false;
+
+  constructor(private router: Router) {
+    setInterval(time => {
+      if (localStorage.getItem('api_token')) {
+        this.loggedIn = true;
+      }
+    }, 2000);
+  }
+
+  logoutUser(): void {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+    this.loggedIn = false;
+  }
 }

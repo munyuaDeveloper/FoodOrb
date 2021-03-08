@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FoodOrbService} from '../services-module/food-orb.service';
+import {DishDetails} from '../interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  Dishes: DishDetails[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private foodOrbService: FoodOrbService) {
   }
 
+  ngOnInit(): void {
+    this.getAllDishes();
+  }
+
+  getAllDishes(): any {
+    this.foodOrbService.getDishes().subscribe(res => {
+      this.Dishes = res;
+    });
+  }
 }

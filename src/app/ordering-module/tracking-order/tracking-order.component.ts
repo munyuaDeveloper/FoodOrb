@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FoodOrbService} from '../../services-module/food-orb.service';
 
 @Component({
   selector: 'app-tracking-order',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackingOrderComponent implements OnInit {
 
-  constructor() { }
+  orderStatus: any;
+
+  constructor(private foodOrbService: FoodOrbService) {
+  }
 
   ngOnInit(): void {
+    this.getOrderStatus(1);
+  }
+
+  getOrderStatus(id): any {
+    this.foodOrbService.getOrderStatus(id).subscribe(res => {
+      this.orderStatus = res;
+    });
   }
 
 }
