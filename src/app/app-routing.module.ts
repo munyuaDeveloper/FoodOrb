@@ -46,7 +46,7 @@ const routes: Routes = [
     component: OrderingsComponent
   },
   {
-    path: 'order-tracking',
+    path: 'track-order/:id',
     component: TrackingOrderComponent
   },
   {

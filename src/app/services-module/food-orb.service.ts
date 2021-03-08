@@ -18,7 +18,7 @@ export class FoodOrbService {
   feeds = this.baseUrl + 'feed';
   orders = this.baseUrl + 'orders';
   orderDetails = this.baseUrl + 'orders/{order_id}';
-  orderStatus = this.baseUrl + 'orders/<order_id>/status';
+  orderStatus = this.baseUrl + 'orders/';
   friends = this.baseUrl + 'friends';
   listings = this.baseUrl + 'listings';
 

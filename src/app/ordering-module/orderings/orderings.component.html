@@ -12,10 +12,10 @@
             <p class="text-muted small">{{order.amount | currency}} </p>
           </div>
           <div class="media-right mt-5">
-            <button class="btn btn-primary shadow-sm" [routerLink]="['/track-order',1]">View</button>
+            <button class="btn btn-primary shadow-sm" [routerLink]="['/track-order',1]">Track Status</button>
           </div>
         </div>
-
+        <p *ngIf="!Orders" class="text-center">No order found!</p>
       </div>
 
     </div>

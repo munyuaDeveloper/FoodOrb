@@ -1,1 +1,19 @@
-<p>tracking-order works!</p>
+<div class="jumbotron">
+  <div class="container hero_section">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="mt-4">
+        </div>
+      </div>
+      <div class="col-sm-8 border bg-light">
+        <h3 class="mt-5">Order #{{orderStatus?.order_id}}</h3>
+        <div class="order_status">
+          <button class="btn btn-outline-primary mr-5"><i class="fa fa-check text-success"></i> Placed</button>
+          <button class="btn btn-outline-primary mr-5"><i class="fa fa-check text-success"></i> Picked</button>
+          <button class="btn btn-outline-primary mr-5">Delivered</button>
+          <div class="mt-5">Status:  <button class="btn btn-outline-primary mr-5">{{orderStatus?.status}}</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
