@@ -4,6 +4,13 @@
     <div class="row">
       <div class="col-sm-10 offset-sm-1 border border-light p-4">
         <h3>Find Friends</h3>
+        <div  *ngIf="!friendsList" class="container">
+          <div class="row">
+            <div class="spinner-border text-primary text-center" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
         <div class="media border mb-3 p-3 bg-light" *ngFor="let friend of friendsList">
           <div class="media-left">
             <img src="../../../assets/user.png" class="img rounded" height="100">
