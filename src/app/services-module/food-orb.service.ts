@@ -9,15 +9,16 @@ import {DishDetails, FriendDetails, OrderDetail} from '../interfaces/interfaces'
 export class FoodOrbService {
   baseUrl = 'https://foodorbbackend.herokuapp.com/api/';
 
-  register = this.baseUrl + 'register/';
-  login = this.baseUrl + 'login/';
-  forgotPassword = this.baseUrl + 'forgotpassword';
+  register = this.baseUrl + 'register';
+  login = this.baseUrl + 'login';
+  forgotPassword = this.baseUrl + 'forgotpassword?email=';
   users = this.baseUrl + 'users';
-  userDetails = this.baseUrl + 'users/{order_id}';
+  userDetails = this.baseUrl + 'users';
   setting = this.baseUrl + 'setting';
   feeds = this.baseUrl + 'feed';
   orders = this.baseUrl + 'orders';
-  orderDetails = this.baseUrl + 'orders/{order_id}';
+  orderDetails = this.baseUrl + 'orders';
+  addOrder = this.baseUrl + 'orders';
   orderStatus = this.baseUrl + 'orders/';
   friends = this.baseUrl + 'friends';
   listings = this.baseUrl + 'listings';
@@ -34,7 +35,7 @@ export class FoodOrbService {
   }
 
   resetPassword(userDetails): any {
-    return this.http.post(this.forgotPassword, userDetails);
+    return this.http.get(this.forgotPassword + userDetails);
   }
 
   listUsers(): any {
@@ -47,6 +48,10 @@ export class FoodOrbService {
 
   updateUserProfile(userDetails): any {
     return this.http.post(this.users, userDetails);
+  }
+
+  addToCart(order): any {
+    return this.http.post(this.addOrder, order);
   }
 
   getDishes(): Observable<DishDetails[]> {
